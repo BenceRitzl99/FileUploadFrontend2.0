@@ -23,6 +23,18 @@ export class UploadFormComponent {
     
   }
 
+  uploadMultiple(){
+    this.uploadFile.uploadFileExpress(this.selectedFiles).subscribe(
+      {
+        next:(res)=>console.log(res),
+        error:(err)=>console.log(err)
+
+      })
+
+}
+
+  
+
   upload(){
     console.log("upload")
     console.log(this.selectedFiles)
@@ -37,14 +49,14 @@ export class UploadFormComponent {
         })
 
   }
-  //   for (const file of this.selectedFiles) {
-  //     this.uploadFile.uploadFile(file).subscribe(
-  //       (percentage: any) =>
-  //       {this.percentage=Math.round(percentage?percentage:0)
-  //       console.log(this.percentage)
-  //     }
-  //   )
+    for (const file of this.selectedFiles) {
+      this.uploadFile.uploadFile(file).subscribe(
+        (percentage: any) =>
+        {this.percentage=Math.round(percentage?percentage:0)
+        console.log(this.percentage)
+      }
+    )
 
-  // }
   }
-}
+   }
+ }

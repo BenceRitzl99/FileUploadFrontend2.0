@@ -21,6 +21,13 @@ export class UploadService {
 
     return this.http.post(this.api+"upload", formData,)
   }
+  uploadFilesExpress(file:any){
+    const formData = new FormData()
+    const fajlok = new Array(...file)
+    formData.append('file', fajlok)
+
+    return this.http.post(this.api+"upload-multiple", formData,)
+  }
 
   saveFileData(url:any, filename:any){
     this.db.list(this.path).push({url:url, filename:filename})
