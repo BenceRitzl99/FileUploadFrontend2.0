@@ -1,0 +1,9 @@
+<!-- {{files|json}} -->
+
+<div *ngFor="let file of files" class="row">
+
+    <div class="col"><a [href]="'http://localhost:3000/uploads//'+ file">{{file.substring(file.lastIndexOf('-')+1)}}</a></div>
+    <div class="col">
+        <button  (click)="deleteFileExpress(file)" type="button" class="btn btn-outline-danger">Delete</button>
+    </div>
+</div>
